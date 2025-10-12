@@ -52,6 +52,11 @@ func open() -> void:
 	active = true
 
 func close() -> void:
+	# guzlad: fix for Challenge Mode end screen softlock where you could close the menu
+	# There's 2 ways of doing this but I picked the second one, if is_pause behavior changes we can use the first one
+#	if (Global.current_game_mode == Global.GameMode.CHALLENGE and scene_file_path.get_file() == "ChallengeModeEnd.tscn"):
+	if (Global.current_game_mode == Global.GameMode.CHALLENGE and !is_pause):
+		return
 	active = false
 	selected_index = 0
 	hide()
