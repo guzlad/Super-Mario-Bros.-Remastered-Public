@@ -129,11 +129,13 @@ func do_sp_scroll(direction := 1) -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 	var distance = get_viewport().get_visible_rect().size.x - 32
-	if Settings.file.visuals.smbs_scroll == 1:
+	if Settings.file.visuals.smbs_scroll == 1: #Sharp X1 (smooth)
 		var tween = create_tween()
 		tween.tween_property(self, "camera_position:x", camera_position.x + (distance * direction), 1)
 		await tween.finished
-	else:
+	else: #PC-8801 (black screen)
+		if Settings.file.visuals.transition_animation:
+			Global.get_node("Transition").get_node("TransitionBlock").modulate.a = 1
 		Global.get_node("Transition").show()
 		await get_tree().create_timer(0.5).timeout
 		camera_position.x += distance * direction
