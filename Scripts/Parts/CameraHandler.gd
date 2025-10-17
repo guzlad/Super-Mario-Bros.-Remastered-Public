@@ -26,8 +26,9 @@ const SCROLL_DIFFERENCE := 48.0
 
 var can_diff := true
 
+# guzlad: old Special scrolling variables kept for reference purposes
 static var sp_screen_scroll := false
-static var sp_scroll_style := 1
+#static var sp_scroll_style := 1
 
 var sp_scrolling := false
 
@@ -35,6 +36,7 @@ func _exit_tree() -> void:
 	cam_locked = false
 
 func _physics_process(delta: float) -> void:
+	sp_screen_scroll = Settings.file.visuals.smbs_scroll > 0
 	handle_camera(delta)
 	last_position = global_position
 
@@ -127,7 +129,7 @@ func do_sp_scroll(direction := 1) -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 	var distance = get_viewport().get_visible_rect().size.x - 32
-	if sp_scroll_style == 0:
+	if Settings.file.visuals.smbs_scroll == 1:
 		var tween = create_tween()
 		tween.tween_property(self, "camera_position:x", camera_position.x + (distance * direction), 1)
 		await tween.finished
