@@ -6,6 +6,8 @@ var selected_index := 0
 var active := true
 static var title_first_load = true
 static var return_to_challenge_options := false
+static var return_to_extras := false
+static var return_selected_index := 0
 
 @onready var cursor = %Cursor
 
@@ -48,8 +50,13 @@ func _ready() -> void:
 	if return_to_challenge_options:
 		return_to_challenge_options = false
 		$CanvasLayer/Options1.close()
-		$CanvasLayer/Options2.close()
 		%ChallengeOptions.open()
+		%ChallengeOptions.selected_index = return_selected_index
+	elif return_to_extras:
+		return_to_extras = false
+		$CanvasLayer/Options1.close()
+		%Extras.open()
+		%Extras.selected_index = return_selected_index
 
 func update_title() -> void:
 	SaveManager.apply_save(SaveManager.load_save(Global.current_campaign))
@@ -256,6 +263,7 @@ func on_story_options_closed() -> void:
 
 func go_to_credits() -> void:
 	CreditsLevel.go_to_title_screen = true
+	CreditsLevel.view_from_menu = true
 	Global.transition_to_scene("res://Scenes/Levels/Credits.tscn")
  
 func check_for_unlocked_achievements() -> void:

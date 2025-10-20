@@ -100,6 +100,7 @@ func handle_input() -> void:
 		return
 	if Input.is_action_just_pressed("ui_back"):
 		TitleScreen.return_to_challenge_options = true
+		TitleScreen.return_selected_index = 0
 		Global.transition_to_scene("res://Scenes/Levels/TitleScreen.tscn")
 	if Input.is_action_just_pressed("ui_accept"):
 		level_selected()
