@@ -5,6 +5,8 @@ var selected_index := 0
 
 var active := true
 static var title_first_load = true
+static var return_to_options2 := false
+static var return_to_story_options := false
 static var return_to_challenge_options := false
 static var return_to_extras := false
 static var return_selected_index := 0
@@ -47,14 +49,25 @@ func _ready() -> void:
 	Global.current_level = null
 	Global.world_num = clamp(Global.world_num, 1, get_world_count())
 	update_title()
-	if return_to_challenge_options:
+	if return_to_options2:
+		return_to_options2 = false
+		%Options1.close()
+		%Options2.open()
+		%Options2.selected_index = return_selected_index
+	elif return_to_story_options:
+		return_to_story_options = false
+		get_highscore()
+		%Options1.close()
+		%StoryOptions.open()
+		%StoryOptions.selected_index = return_selected_index
+	elif return_to_challenge_options:
 		return_to_challenge_options = false
-		$CanvasLayer/Options1.close()
+		%Options1.close()
 		%ChallengeOptions.open()
 		%ChallengeOptions.selected_index = return_selected_index
 	elif return_to_extras:
 		return_to_extras = false
-		$CanvasLayer/Options1.close()
+		%Options1.close()
 		%Extras.open()
 		%Extras.selected_index = return_selected_index
 
