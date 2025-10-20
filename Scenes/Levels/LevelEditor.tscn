@@ -1,4 +1,4 @@
-[gd_scene load_steps=299 format=3 uid="uid://gbcmqonky63j"]
+[gd_scene load_steps=298 format=3 uid="uid://gbcmqonky63j"]
 
 [ext_resource type="Script" uid="uid://c2lnc7vnq3xth" path="res://Scripts/Classes/Editor/LevelEditor.gd" id="1_0qbyu"]
 [ext_resource type="PackedScene" uid="uid://bksxgpygrdjl7" path="res://Scenes/Prefabs/LevelBG.tscn" id="1_ujeu4"]
@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://cmvugag0kupgu" path="res://Scenes/Prefabs/Entities/Enemies/RedKoopaTroopa.tscn" id="16_e2s1k"]
 [ext_resource type="PackedScene" uid="uid://bkxaywyw6emlc" path="res://Scenes/Prefabs/Entities/Enemies/Goombrat.tscn" id="17_01msc"]
 [ext_resource type="Texture2D" uid="uid://clbmg515rgdhs" path="res://Assets/Sprites/Tilesets/Liquids.png" id="17_awwgo"]
-[ext_resource type="PackedScene" uid="uid://dipap63c1nrnn" path="res://Scenes/Prefabs/Blocks/EmptyBlock.tscn" id="17_i2jbr"]
 [ext_resource type="PackedScene" uid="uid://bx23j813jg0bl" path="res://Scenes/Prefabs/Blocks/SpringBlock.tscn" id="18_2vwpv"]
 [ext_resource type="JSON" path="res://Assets/Sprites/Tilesets/Deco/DecoTiles.json" id="18_esk8u"]
 [ext_resource type="Script" uid="uid://c7xreamx2wvdq" path="res://Scripts/Classes/Editor/EditorSelectorScroller.gd" id="20_jc7xg"]
@@ -1023,10 +1022,9 @@ tile_coords = Vector2i(4, 2)
 [node name="EmptyBlock" parent="TileMenu/MarginContainer/VBoxContainer/PanelContainer/TILES/ScrollContainer/VBoxContainer/Tiles/MarginContainer/GridContainer" groups=["Selectors"] instance=ExtResource("8_wkmjk")]
 layout_mode = 2
 tile_name = "TILE_EMPTY"
-type = 1
 icon_texture = ExtResource("22_ulh3l")
-entity_scene = ExtResource("17_i2jbr")
-tile_offset = Vector2i(0, 0)
+tile_offset = Vector2i(4, 0)
+tile_coords = Vector2i(4, 0)
 
 [node name="TreeTop" parent="TileMenu/MarginContainer/VBoxContainer/PanelContainer/TILES/ScrollContainer/VBoxContainer/Tiles/MarginContainer/GridContainer" groups=["Selectors"] instance=ExtResource("8_wkmjk")]
 layout_mode = 2
