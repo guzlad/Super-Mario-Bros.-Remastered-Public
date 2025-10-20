@@ -5,6 +5,7 @@ var selected_index := 0
 
 var active := true
 static var title_first_load = true
+static var return_to_challenge_options := false
 
 @onready var cursor = %Cursor
 
@@ -44,6 +45,11 @@ func _ready() -> void:
 	Global.current_level = null
 	Global.world_num = clamp(Global.world_num, 1, get_world_count())
 	update_title()
+	if return_to_challenge_options:
+		return_to_challenge_options = false
+		$CanvasLayer/Options1.close()
+		$CanvasLayer/Options2.close()
+		%ChallengeOptions.open()
 
 func update_title() -> void:
 	SaveManager.apply_save(SaveManager.load_save(Global.current_campaign))
