@@ -161,6 +161,8 @@ const ANIMATION_FALLBACKS := {
 	"CrouchJump": "Crouch", 
 	"CrouchBump": "Bump",
 	"CrouchMove": "Crouch", 
+	"WaterCrouchMove": "CrouchMove",
+	"WingCrouchMove": "WaterCrouchMove",
 	"IdleAttack": "MoveAttack", 
 	"CrouchAttack": "IdleAttack", 
 	"MoveAttack": "Attack", 
