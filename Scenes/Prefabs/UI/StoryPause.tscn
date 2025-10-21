@@ -28,10 +28,10 @@ func quit_to_menu() -> void:
 		Global.transition_to_scene(\"res://Scenes/Levels/CustomLevelMenu.tscn\")
 	else:
 		if Global.current_game_mode == Global.GameMode.CHALLENGE:
-			TitleScreen.return_to_challenge_options = true
+			TitleScreen.return_to = TitleScreen.TITLE_RETURN.CHALLENGEOPTIONS
 			TitleScreen.return_selected_index = 1
 		elif Global.current_campaign != \"SMBANN\":
-			TitleScreen.return_to_story_options = true
+			TitleScreen.return_to = TitleScreen.TITLE_RETURN.STORYOPTIONS
 			TitleScreen.return_selected_index = 1
 		Global.transition_to_scene(\"res://Scenes/Levels/TitleScreen.tscn\")
 	get_tree().paused = true

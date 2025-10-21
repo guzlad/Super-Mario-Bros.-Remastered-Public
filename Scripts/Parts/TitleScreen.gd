@@ -5,11 +5,12 @@ var selected_index := 0
 
 var active := true
 static var title_first_load = true
-static var return_to_options2 := false
-static var return_to_story_options := false
-static var return_to_challenge_options := false
-static var return_to_extras := false
+static var return_to := TITLE_RETURN.OPTIONS1
 static var return_selected_index := 0
+
+var title_return: TITLE_RETURN
+
+enum TITLE_RETURN{OPTIONS1, OPTIONS2, EXTRAS, STORYOPTIONS, CHALLENGEOPTIONS}
 
 @onready var cursor = %Cursor
 
@@ -49,27 +50,25 @@ func _ready() -> void:
 	Global.current_level = null
 	Global.world_num = clamp(Global.world_num, 1, get_world_count())
 	update_title()
-	if return_to_options2:
-		return_to_options2 = false
+	if return_to == TITLE_RETURN.OPTIONS2:
 		%Options1.close()
 		%Options2.open()
 		%Options2.selected_index = return_selected_index
-	elif return_to_story_options:
-		return_to_story_options = false
+	elif return_to == TITLE_RETURN.EXTRAS:
+		%Options1.close()
+		%Extras.open()
+		%Extras.selected_index = return_selected_index
+	elif return_to == TITLE_RETURN.STORYOPTIONS:
 		get_highscore()
 		%Options1.close()
 		%StoryOptions.open()
 		%StoryOptions.selected_index = return_selected_index
-	elif return_to_challenge_options:
-		return_to_challenge_options = false
+	elif return_to == TITLE_RETURN.CHALLENGEOPTIONS:
 		%Options1.close()
 		%ChallengeOptions.open()
 		%ChallengeOptions.selected_index = return_selected_index
-	elif return_to_extras:
-		return_to_extras = false
-		%Options1.close()
-		%Extras.open()
-		%Extras.selected_index = return_selected_index
+	return_to = TITLE_RETURN.OPTIONS1
+	return_selected_index = 0
 
 func update_title() -> void:
 	SaveManager.apply_save(SaveManager.load_save(Global.current_campaign))

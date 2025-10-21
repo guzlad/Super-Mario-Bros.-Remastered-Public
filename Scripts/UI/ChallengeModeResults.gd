@@ -52,7 +52,7 @@ func retry_level() -> void:
 	Global.transition_to_scene("res://Scenes/Levels/LevelTransition.tscn")
 
 func go_to_title_screen() -> void:
-	TitleScreen.return_to_challenge_options = true
+	TitleScreen.return_to = TitleScreen.TITLE_RETURN.CHALLENGEOPTIONS
 	TitleScreen.return_selected_index = 1
 	Global.transition_to_scene("res://Scenes/Levels/TitleScreen.tscn")
 

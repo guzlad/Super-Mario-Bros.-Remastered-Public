@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 func exit() -> void:
 	if go_to_title_screen:
 		if view_from_menu:
-			TitleScreen.return_to_extras = true
+			TitleScreen.return_to = TitleScreen.TITLE_RETURN.EXTRAS
 			TitleScreen.return_selected_index = 1
 		Global.transition_to_scene("res://Scenes/Levels/TitleScreen.tscn")
 	else:
