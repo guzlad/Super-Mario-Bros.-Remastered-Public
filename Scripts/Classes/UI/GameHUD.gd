@@ -189,9 +189,6 @@ func activate_pause_menu() -> void:
 		_:
 			$StoryPause.open()
 
-
-
-
 const HURRY_UP = preload("res://Assets/Audio/BGM/HurryUp.mp3")
 
 func on_timeout() -> void:
