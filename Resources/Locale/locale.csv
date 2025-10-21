@@ -403,7 +403,7 @@ TILE_WALL_BASE,,Wall Base,Base du mur,Dół Ściany,ochoba ctehы,,,ＷＡＬＬ
 TILE_CLOUD,,Cloud,Nuage,Chmura,oблako,,,ＣＬＯＵＤ,Ulap,Wolke,Bulut,Awan,Nuvem,くもブロック
 TILE_SOLID,,Solid Tile,Bloc solide,Solidny Klocek,taйл,,,ＳＯＬＩＤ ＴＩＬＥ,Solidong Tile,Solide Plattform,Katı Blok,Ubin Padat,Bloco Sólido,ストーンブロック
 TILE_ALT,,Alt Tile,Sol alternatif,Alternatywny Klocek,taйл (aЛЬt.),,,ＡＬＴ ＴＩＬＥ,Tile (Alt),Alt.-Plattform,Alternatİf Blok,Ubin Alt,Bloco Alternativo,オルタナティブ
-TILE_EMPTY,,Empty Tile,Bloc Vide,Pusty Klocek,taйл (Пуctoй.),,,ＥＭＰＴＹ ＢＬＯＣＫ,,Leerer Block,Boş Blok,,Bloco Vazio,カラブロック
+TILE_EMPTY,,Empty Tile,Bloc Vide,Pusty Klocek,taйл (Пуctoй.),,,ＥＭＰＴＹ ＴＩＬＥ,,Leerer Plattform,Boş Blok,,Bloco Vazio,カラブロック
 ENEMY_GOOMBA,,Goomba,Goomba,Goomba,ГУmбa,Goomba,,ＧＯＯＭＢＡ,Gumba,Goomba,,Goomba,Goomba,クリボー
 ENEMY_GOOMBRAT,,Goombrat,Goomin,Goombrat,ГУmбpat,Goombrat,,ＧＯＯＭＢＲＡＴ,Gumbrat,Goombrat,,Goombrat,Pirralhoomba,カキボー
 ENEMY_KOOPA_GREEN,,Green Koopa,Koopa Vert,Zielony Koopa,Зeлehый kУпa,Koopa Verde,,ＧＲＥＥＮ ＫＯＯＰＡ,Berdeng Kupa,Grüner Koopa,Yeşİl Koopa,Koopa Hijau,Koopa Verde,みどりノコノコ
