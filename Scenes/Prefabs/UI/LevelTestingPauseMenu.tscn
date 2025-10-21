@@ -6,11 +6,6 @@
 resource_name = "Handler"
 script/source = "extends Node
 
-signal close_editor
-signal level_start
-
-#func exit_to_editor() -> void:
-
 func _ready() -> void:
 	set_process(true)
 
