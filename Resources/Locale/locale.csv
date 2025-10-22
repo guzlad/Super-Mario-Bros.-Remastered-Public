@@ -111,7 +111,6 @@ PAUSE_RETRY,,Retry,Recommencer,Powtórz,Пobtopиtь,Reintentar,Riprova,ＲＥ�
 PAUSE_SELECT_LEVEL,,Level Select,Sélection des niveaux,Wybierz Poziom,bыбop Уpobhя,Selección de nivel,Seleziona Livello,ＬＥＶＥＬ ＳＥＬＥＣＴ,Pumili ng Lebel,Level auswählen,Level Seç,Pemilihan Level,Seleção de Níveis,ステージをえらぶ
 CHALLENGE_BOO,,You Vs. Boo,Vous Contre Boo,Ty Kontra Boo,tы Пpotиb БУ,Tú contra Boo,Tu Vs. Boo,ＹＯＵ ＶＳ. ＢＯＯ,Ikaw konta Boo,Du Vs. Boo,Sen Vs. Boo,Kau Vs. Boo,Voçê Vs. Boo,テレサレース
 MENU_SELECT_BOO,,Select Boo,Choisissez le Boo,Wybierz Boo,bыбepи БУ,Seleccionar Boo,Seleziona Boo,ＳＥＬＥＣＴ ＢＯＯ,Pumili ng Boo,Boo wählen,Boo Seç,Pilih Boo,Escolha o seu Boo,テレサをえらぶ
-PAUSE_EDITOR_RETURN,,Return to Editor,Return to Editor,Return to Editor,Return to Editor,Return to Editor,Return to Editor,Return to Editor,Return to Editor,Return to Editor,Return to Editor,Return to Editor,Return to Editor,Return to Editor
 PAUSE_RACE_RESTART,,Restart Race,Recommencer la course,Zrestartuj Wyścig,Пobtopиtь ГohkУ,Reiniciar carrera,Ricomincia gara,ＲＥＳＴＡＲＴ ＲＡＣＥ,Ulitin,Rennen neustarten,Yarışı Yenİden Başlat,Balapan Ulang,Recomeçe a Corrida,レースをリスタート
 CHALLENGE_HUNT,"The challenge mode featured in SMB DX, involves the player running around levels finding red coins and a hidden yoshi egg. (Like a scavenger hunt!)",Challenge Hunt,Défi de chasse,Tryb Poszukiwania,Иcпыtahиe oxotы,Caza de Monedas,Sfida di caccia,ＣＨＡＬＬＥＮＧＥ ＨＵＮＴ,Scavenger,Schatzsuche,Zorluk Avı,Tantangan Berburu,Caça ao Desafio,チャレンジゲーム
 MARATHON_START,,Start Run,Commencez la run,Zacznij Próbę,haчatь Зaбeг,Iniciar Maraton,Inizia run,ＳＴＡＲＴ ＲＵＮ,Simulan,Starten,Başla,Mulai Lari,Começar Rodada,スタート
@@ -404,7 +403,7 @@ TILE_WALL_BASE,,Wall Base,Base du mur,Dół Ściany,ochoba ctehы,,,ＷＡＬＬ
 TILE_CLOUD,,Cloud,Nuage,Chmura,oблako,,,ＣＬＯＵＤ,Ulap,Wolke,Bulut,Awan,Nuvem,くもブロック
 TILE_SOLID,,Solid Tile,Bloc solide,Solidny Klocek,taйл,,,ＳＯＬＩＤ ＴＩＬＥ,Solidong Tile,Solide Plattform,Katı Blok,Ubin Padat,Bloco Sólido,ストーンブロック
 TILE_ALT,,Alt Tile,Sol alternatif,Alternatywny Klocek,taйл (aЛЬt.),,,ＡＬＴ ＴＩＬＥ,Tile (Alt),Alt.-Plattform,Alternatİf Blok,Ubin Alt,Bloco Alternativo,オルタナティブ
-TILE_EMPTY,,Empty Block,Bloc Vide,Pusty Blok,Пуctoй Блok,,,ＥＭＰＴＹ ＢＬＯＣＫ,,Leerer Block,Boş Blok,,Bloco Vazio,カラブロック
+TILE_EMPTY,,Empty Tile,Bloc Vide,Pusty Klocek,taйл (Пуctoй.),,,ＥＭＰＴＹ ＴＩＬＥ,,Leerer Plattform,Boş Blok,,Bloco Vazio,カラブロック
 ENEMY_GOOMBA,,Goomba,Goomba,Goomba,ГУmбa,Goomba,,ＧＯＯＭＢＡ,Gumba,Goomba,,Goomba,Goomba,クリボー
 ENEMY_GOOMBRAT,,Goombrat,Goomin,Goombrat,ГУmбpat,Goombrat,,ＧＯＯＭＢＲＡＴ,Gumbrat,Goombrat,,Goombrat,Pirralhoomba,カキボー
 ENEMY_KOOPA_GREEN,,Green Koopa,Koopa Vert,Zielony Koopa,Зeлehый kУпa,Koopa Verde,,ＧＲＥＥＮ ＫＯＯＰＡ,Berdeng Kupa,Grüner Koopa,Yeşİl Koopa,Koopa Hijau,Koopa Verde,みどりノコノコ
@@ -442,6 +441,7 @@ ENEMY_WRENCH,,Rocky Wrench,Torti-Taupe,Rocky Wrench,pokи-kлюч,,,ＲＯＣＫ
 ENEMY_BARREL,,Barrel,Tonneau,Beczka,Бoчka,,,ＢＡＲＲＥＬ,Bariles,Fass,Varİl,Barel,Barril,タル
 ,,,Greg,Hog Rider is a 4 elixir rare card found in,,,,,,,,,,
 BLOCK_MYSTERY,? Block,? Block,Bloc ?,Blok ?,Блok ?,,,? ＢＬＯＣＫ,? Bloke,?-Block,? Bloğu,? Blok,Bloco ?,アイテムボックス
+BLOCK_EMPTY,,Empty Block,Bloc Vide,Pusty Blok,Пуctoй Блok,,,ＥＭＰＴＹ ＢＬＯＣＫ,,Leerer Block,Boş Blok,,Bloco Vazio,カラブロック
 BLOCK_BRICK,,Brick Block,Brique,Cegły,Блok,,,ＢＲＩＣＫ ＢＬＯＣＫ,Landrilyo,Ziegelblock,Tuğla Bloğu,Bata Blok,Bloco de Tijolo,レンガ
 BLOCK_TURN,The spinning blocks from SMW,Turn Block,Bloc tournant,Obracany Blok,Пobopaчиbaющий блok,,,ＴＵＲＮ ＢＬＯＣＫ,Umiikot na Bloke,Rotierender Block,Dönen Blok,Putar Blok,Bloco Rotativo,クルクルブロック
 BLOCK_INVISIBLE,,Invisible ? Block,Bloc Secret,Niewidzialny Blok ?,ckpыtый блok,,,ＩＮＶＩＳＩＢＬＥ ? ＢＬＯＣＫ,Di nakikitang ? Bloke,Unsichtbarer ?-Block,Görünmez ? Bloğu,Tak Terlihat ? Blok,Bloco ? Invisível,とうめいブロック
