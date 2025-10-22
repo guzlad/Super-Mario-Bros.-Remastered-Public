@@ -1,52 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://b875xb333ty2y"]
 
 [ext_resource type="PackedScene" uid="uid://dekuqrdjmnr1m" path="res://Scenes/Prefabs/UI/BasePauseMenu.tscn" id="1_ctfeg"]
-
-[sub_resource type="GDScript" id="GDScript_f5bwf"]
-resource_name = "Handler"
-script/source = "extends Node
-
-func _ready() -> void:
-	set_process(true)
-
-func _process(_delta: float) -> void:
-	if (Input.is_action_just_pressed(\"editor_play\")):
-		if (!Global.level_editor_is_playtesting()):
-			$\"..\".close()
-			if ($SettingsMenu != null):
-				$SettingsMenu.close()
-
-func exit_to_editor() -> void:
-	Checkpoint.passed_checkpoints.clear()
-	Global.level_editor.stop_testing()
-
-func quit_to_menu() -> void:
-	Checkpoint.passed_checkpoints.clear()
-	Global.level_editor.stop_testing()
-	Global.level_editor.save_level()
-	Global.level_editor.quit_editor()
-	Global.level_editor.save_level_before_exit()
-	await Global.level_editor.level_saved
-	AudioManager.stop_all_music()
-	Global.transition_to_scene(\"res://Scenes/Levels/CustomLevelMenu.tscn\")
-	get_tree().paused = true
-	await Global.current_level.tree_exited
-	$\"..\".close()
-"
+[ext_resource type="Script" uid="uid://db1j3sjvar0hh" path="res://Scripts/UI/LevelTestingPauseMenu.gd" id="2_f5bwf"]
 
 [node name="LevelTestingPauseMenu" instance=ExtResource("1_ctfeg")]
-visible = false
+script = ExtResource("2_f5bwf")
 
 [node name="Label2" parent="Control/PanelContainer/MarginContainer/VBoxContainer" index="1"]
 text = "PAUSE_EDITOR_RETURN"
 
-[node name="Handler" type="Node" parent="." index="2"]
-script = SubResource("GDScript_f5bwf")
-
-[node name="SettingsMenu" parent="." index="3"]
+[node name="SettingsMenu" parent="." index="2"]
 unique_name_in_owner = true
 process_mode = 3
 
 [connection signal="option_1_selected" from="." to="." method="close"]
-[connection signal="option_2_selected" from="." to="Handler" method="exit_to_editor"]
-[connection signal="option_4_selected" from="." to="Handler" method="quit_to_menu"]
+[connection signal="option_2_selected" from="." to="." method="exit_to_editor"]
+[connection signal="option_4_selected" from="." to="." method="quit_to_menu"]

@@ -187,7 +187,8 @@ func activate_pause_menu() -> void:
 		Global.GameMode.MARATHON_PRACTICE:
 			$MarathonPause.open()
 		Global.GameMode.LEVEL_EDITOR:
-			$LevelTestingPause.open()
+			if (Global.level_editor_is_playtesting()):
+				$LevelTestingPause.open()
 		_:
 			$StoryPause.open()
 
