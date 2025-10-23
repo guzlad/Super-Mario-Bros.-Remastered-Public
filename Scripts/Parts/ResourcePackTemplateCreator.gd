@@ -30,7 +30,7 @@ func create_template() -> void:
 			## Imagine being one of the best open source game engines, yet not able to get the FUCKING CONTENTS
 			## OF AN FNT FILE SO INSTEAD YOU HAVE TO WRITE THE MOST BULLSHIT CODE TO DOWNLOAD THE FUCKING FILE
 			## FROM THE FUCKING GITHUB REPO. WHY? BECAUSE GODOT IS SHIT. FUCK GODOT.
-		elif i.contains(".bgm") == false and i.contains(".ctex") == false and i.contains(".json") == false and i.contains("res://")  and i.contains(".fnt") == false:
+		elif i.contains(".bgm") == false and i.contains(".ctex") == false and i.contains(".json") == false and i.contains("res://") and i.contains(".fnt") == false:
 			print("inside elif:" + i)
 			var resource = load(i)
 			if resource is Texture:
@@ -45,6 +45,8 @@ func create_template() -> void:
 						print("wav:" + i)
 						var wav_file: AudioStreamWAV
 						wav_file = load(i)
+						## guzlad: CAN NOT BE format FORMAT_IMA_ADPCM or FORMAT_QOA as they don't support the save function
+						## guzlad: Should be FORMAT_16_BITS like most of our other .wav files 
 						var error_check = wav_file.save_to_wav(destination)
 						print(error_string(error_check))
 					## guzlad: No OGG yet
