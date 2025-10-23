@@ -13,6 +13,8 @@ const base_info_json := {
 	"author": "Me, until you change it",
 	"version": "1.0"
 	}
+	
+const disallowed_files := ["bgm","ctex","json","fnt", "svg"]
 
 func create_template() -> void:
 	get_directories("res://Assets", files, directories)
@@ -28,39 +30,42 @@ func create_template() -> void:
 		if i.contains(".fnt"):
 			data = await download_fnt_text(i) 
 			## Imagine being one of the best open source game engines, yet not able to get the FUCKING CONTENTS
-			## OF AN FNT FILE SO INSTEAD YOU HAVE TO WRITE THE MOST BULLSHIT CODE TO DOWNLOAD THE FUCKING FILE
+			## OF AN FNT FILE SO INSTEAD YOU HAVE TO WRITE THE MOST BULLSHIT CODzE TO DOWNLOAD THE FUCKING FILE
 			## FROM THE FUCKING GITHUB REPO. WHY? BECAUSE GODOT IS SHIT. FUCK GODOT.
-		elif i.contains(".bgm") == false and i.contains(".ctex") == false and i.contains(".json") == false and i.contains("res://") and i.contains(".fnt") == false:
-			print("inside elif:" + i)
+		elif i.contains(".svg"):
+			## DON'T import SVGs
+			continue
+		elif disallowed_files.has(i.get_extension()) == false and i.contains("res://"):
 			var resource = load(i)
 			if resource is Texture:
-				print("texture:" + i)
+				if OS.is_debug_build(): print("texture:" + i)
 				data = resource.get_image().save_png_to_buffer()
 			elif resource is AudioStream:
 				match i.get_extension():
 					"mp3":
-						print("mp3:" + i)
+						if OS.is_debug_build(): print("mp3:" + i)
 						data = resource.get_data()
 					"wav":
-						print("wav:" + i)
-						var wav_file: AudioStreamWAV
-						wav_file = load(i)
 						## guzlad: CAN NOT BE format FORMAT_IMA_ADPCM or FORMAT_QOA as they don't support the save function
 						## guzlad: Should be FORMAT_16_BITS like most of our other .wav files 
-						var error_check = wav_file.save_to_wav(destination)
-						print(error_string(error_check))
+						if OS.is_debug_build(): print("wav:" + i)
+						var wav_file: AudioStreamWAV = load(i)
+						if OS.is_debug_build(): print(error_string(wav_file.save_to_wav(destination)))
 					## guzlad: No OGG yet
 					_:
 						data = resource.get_data()
 		else:
-			print("else:" + i)
+			if OS.is_debug_build(): print("else:" + i)
 			var old_file = FileAccess.open(i, FileAccess.READ)
 			data = old_file.get_buffer(old_file.get_length())
+			if OS.is_debug_build(): print("else error: " + error_string(old_file.get_error()))
 			old_file.close()
 
 		if !data.is_empty():
+			if OS.is_debug_build(): print("saving:" + i)
 			var new_file = FileAccess.open(destination, FileAccess.WRITE)
 			new_file.store_buffer(data)
+			if OS.is_debug_build(): print("saving error: " + error_string(new_file.get_error()))
 			new_file.close()
 	
 	var pack_info_path = Global.config_path.path_join("resource_packs/new_pack/pack_info.json")
@@ -96,10 +101,11 @@ func get_files(base_dir := "", files := []) -> void:
 	for i in DirAccess.get_files_at(base_dir):
 		if base_dir.contains("LevelGuides") == false:
 			i = i.replace(".import", "")
-			print(i)
+			#print(i)
 			var target_path = base_dir + "/" + i
 			var rom_assets_path = target_path.replace("res://Assets", Global.config_path.path_join("resource_packs/BaseAssets"))
 			if FileAccess.file_exists(rom_assets_path):
 				files.append(rom_assets_path)
 			else:
 				files.append(target_path)
+#		elif i.contains(".bgm") == false and i.contains(".ctex") == false and i.contains(".json") == false and i.contains("res://") and i.contains(".fnt") == false:
