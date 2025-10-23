@@ -10,7 +10,8 @@ var downloaded_fnt_text := []
 const base_info_json := {
 	"name": "New Pack",
 	"description": "Template, give me a description!",
-	"author": "Me, until you change it"
+	"author": "Me, until you change it",
+	"version": "1.0"
 	}
 
 func create_template() -> void:
@@ -29,20 +30,36 @@ func create_template() -> void:
 			## Imagine being one of the best open source game engines, yet not able to get the FUCKING CONTENTS
 			## OF AN FNT FILE SO INSTEAD YOU HAVE TO WRITE THE MOST BULLSHIT CODE TO DOWNLOAD THE FUCKING FILE
 			## FROM THE FUCKING GITHUB REPO. WHY? BECAUSE GODOT IS SHIT. FUCK GODOT.
-		elif i.contains(".bgm") == false and i.contains(".ctex") == false and i.contains(".json") == false and i.contains("res://") and i.contains(".fnt") == false:
+		elif i.contains(".bgm") == false and i.contains(".ctex") == false and i.contains(".json") == false and i.contains("res://")  and i.contains(".fnt") == false:
+			print("inside elif:" + i)
 			var resource = load(i)
 			if resource is Texture:
+				print("texture:" + i)
 				data = resource.get_image().save_png_to_buffer()
 			elif resource is AudioStream:
-				data = resource.get_data()
+				match i.get_extension():
+					"mp3":
+						print("mp3:" + i)
+						data = resource.get_data()
+					"wav":
+						print("wav:" + i)
+						var wav_file: AudioStreamWAV
+						wav_file = load(i)
+						var error_check = wav_file.save_to_wav(destination)
+						print(error_string(error_check))
+					## guzlad: No OGG yet
+					_:
+						data = resource.get_data()
 		else:
+			print("else:" + i)
 			var old_file = FileAccess.open(i, FileAccess.READ)
 			data = old_file.get_buffer(old_file.get_length())
 			old_file.close()
 
-		var new_file = FileAccess.open(destination, FileAccess.WRITE)
-		new_file.store_buffer(data)
-		new_file.close()
+		if !data.is_empty():
+			var new_file = FileAccess.open(destination, FileAccess.WRITE)
+			new_file.store_buffer(data)
+			new_file.close()
 	
 	var pack_info_path = Global.config_path.path_join("resource_packs/new_pack/pack_info.json")
 	DirAccess.make_dir_recursive_absolute(pack_info_path.get_base_dir())
